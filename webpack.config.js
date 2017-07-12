@@ -2,10 +2,10 @@
  * Created by az on 2017/7/11.
  */
 module.exports = {
-    entry: __dirname+'/src/index.js',
+    entry: __dirname+'/src/qb-component/index.js',
     output: {
-        path: __dirname+'/build',
-        filename: 'bundle.js'
+        path: __dirname,
+        filename: 'build/index.js'
     },
     module: {
         loaders: [
