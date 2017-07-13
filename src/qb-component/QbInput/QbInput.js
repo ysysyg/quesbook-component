@@ -3,16 +3,17 @@
  */
 import React, {Component} from 'react';
 
-/*eslint_disable*/
+/*eslint-disable*/
 class QbInput extends Component {
     static propTypes = {
         placeHolder: React.PropTypes.string,
         className: React.PropTypes.string,
         size: React.PropTypes.string,
         style: React.PropTypes.object,
+        changeHandler: React.PropTypes.func,
     };
     render() {
-        const {placeHolder, className, size, style} = this.props;
+        const {placeHolder, className, size, style, changeHandler} = this.props;
         let height = 38;
         switch (size) {
             case 'small':
@@ -30,6 +31,9 @@ class QbInput extends Component {
                 <input type='text'
                        className={className}
                        placeholder={placeHolder}
+                       onChange={(e)=> {
+                           changeHandler.bind(this)(e);
+                       }}
                        style={{...style, ...privateStyle.input, height}}/>
             </div>
         );

@@ -10,6 +10,8 @@ class QbButton extends Component {
         size: React.PropTypes.string,
         clickHandler: React.PropTypes.func,
         color: React.PropTypes.string,
+        style: React.PropTypes.object,
+        fontStyle: React.PropTypes.object,
     };
     constructor(props) {
         super(props);
@@ -18,7 +20,7 @@ class QbButton extends Component {
         this.mouseDownHandler = this.mouseDownHandler.bind(this);
         this.mouseOutHandler = this.mouseOutHandler.bind(this);
         this.state = {
-            className : props.className.trim().split(/ +/),
+            className : props.className?props.className.trim().split(/ +/):[],
         };
     }
     addClass(name) {
@@ -54,11 +56,12 @@ class QbButton extends Component {
         this.addClass('click');
     }
     render() {
-        const {label, size, clickHandler, style} = this.props;
+        const {label, size, clickHandler, style, fontStyle} = this.props;
         let height = 38;
         let fontSize = 21;
         let margin = '9px 26px';
-        switch (size) {
+        let btnSize = size?size:'default';
+        switch (btnSize) {
             case 'small':
                 height = 30;
                 fontSize = 16;
@@ -81,23 +84,21 @@ class QbButton extends Component {
                 break;
         }
         let className = '';
-        console.log('Tag this.state.className ,', this.state.className);
         this.state.className.forEach((name)=> {
             className = className +' ' + name;
         });
-        console.log('Tag className :', this.state.className, className);
         return (
             <button onMouseOver={this.mouseOverHandler}
                     onMouseOut={this.mouseOutHandler}
                     onMouseDown={this.mouseDownHandler}
                     onMouseUp={this.mouseUpHandler}
-                    onClick={clickHandler()}
+                    onClick={(e)=> clickHandler.bind(this)(e)}
                     className={className}
-                    style={{...privateStyle.frame, height, fontSize}}>
+                    style={{...privateStyle.frame, ...style, height, fontSize, }}>
                 <div>
                     {this.props.children}
                 </div>
-                <div style={{...style, ...privateStyle.content, margin}}>
+                <div style={{...privateStyle.content, ...fontStyle, margin}}>
                     {label}
                 </div>
             </button>
