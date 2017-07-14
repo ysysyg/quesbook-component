@@ -2,6 +2,7 @@
  * Created by az on 2017/7/10.
  */
 import React, {Component} from 'react';
+import Button from 'react-bootstrap/lib/Button';
 /*eslint-disable*/
 class QbButton extends Component {
     static propTypes = {
@@ -40,19 +41,15 @@ class QbButton extends Component {
         });
     }
     mouseOverHandler() {
-        console.log('Tag hover');
         this.addClass('hover');
     }
     mouseOutHandler() {
-        console.log('Tag onMouseOut');
         this.removeClass('hover');
     }
     mouseUpHandler() {
-        console.log('Tag mouse up');
         this.removeClass('click');
     }
     mouseDownHandler() {
-        console.log('Tag mouse down');
         this.addClass('click');
     }
     render() {
@@ -88,11 +85,11 @@ class QbButton extends Component {
             className = className +' ' + name;
         });
         return (
-            <button onMouseOver={this.mouseOverHandler}
+            <Button onMouseOver={this.mouseOverHandler}
                     onMouseOut={this.mouseOutHandler}
                     onMouseDown={this.mouseDownHandler}
                     onMouseUp={this.mouseUpHandler}
-                    onClick={(e)=> clickHandler.bind(this)(e)}
+                    onClick={(e)=> clickHandler(e)}
                     className={className}
                     style={{...privateStyle.frame, ...style, height, fontSize, }}>
                 <div>
@@ -101,7 +98,7 @@ class QbButton extends Component {
                 <div style={{...privateStyle.content, ...fontStyle, margin}}>
                     {label}
                 </div>
-            </button>
+            </Button>
         );
     }
 }

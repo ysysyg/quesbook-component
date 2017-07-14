@@ -1,6 +1,6 @@
 {
   "name": "quesbook-component",
-  "version": "0.0.12",
+  "version": "0.0.14",
   "description": "",
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -11,26 +11,28 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^2.0.1",
     "babel-preset-stage-0": "^6.24.1",
-    "webpack": "1.14.0"
+    "webpack": "1.14.0",
+    "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
-    "react-dom": "^15.4.2",
-    "reactstrap": "^4.8.0"
+    "react-bootstrap": "^0.31.1",
+    "react-dom": "^15.4.2"
   },
   "files": [
     "QbButton",
+    "QbInput",
     "src",
     "package.json",
     "index.js"
   ],
   "scripts": {
-    "compile": "rimraf lib && babel src --copy-files --source-maps --extensions .es6,.es,.jsx --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/qb-component -d ./"
+    "build": "babel src/qb-component -d ./",
+    "dev": "webpack-dev-server --content-base dist/"
   },
   "repository": {
     "type": "git",

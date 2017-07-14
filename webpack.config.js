@@ -4,8 +4,9 @@
 module.exports = {
     entry: __dirname+'/src/qb-component/index.js',
     output: {
-        path: __dirname,
-        filename: 'build/index.js'
+        path: './dist/js',
+        filename: 'bundle.js',
+        publicPath: '/assets/'
     },
     module: {
         loaders: [
