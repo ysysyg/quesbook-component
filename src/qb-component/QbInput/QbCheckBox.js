@@ -9,12 +9,13 @@ class QbCheckBox extends Component {
     render() {
         const {className, value, changeHandler, style, label} = this.props;
         return (
-            <Checkbox type="checkbox"
-                      value={value}
-                      style={style}
-                      onChange={(e)=> changeHandler.bind(this)(e)}>
+            <div>
+                <input type="checkbox"
+                       value={value}
+                       style={style}
+                       onChange={(e)=> changeHandler.bind(this)(e)}/>
                 {label}
-            </Checkbox>
+            </div>
         )
     }
 }

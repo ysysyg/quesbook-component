@@ -5,15 +5,6 @@ import React, {Component} from 'react';
 import Button from 'react-bootstrap/lib/Button';
 /*eslint-disable*/
 class QbButton extends Component {
-    static propTypes = {
-        label: React.PropTypes.string,
-        className: React.PropTypes.string,
-        size: React.PropTypes.string,
-        clickHandler: React.PropTypes.func,
-        color: React.PropTypes.string,
-        style: React.PropTypes.object,
-        fontStyle: React.PropTypes.object,
-    };
     constructor(props) {
         super(props);
         this.mouseOverHandler = this.mouseOverHandler.bind(this);
@@ -53,7 +44,7 @@ class QbButton extends Component {
         this.addClass('click');
     }
     render() {
-        const {label, size, clickHandler, style, fontStyle} = this.props;
+        const {label, size, clickHandler, style, fontStyle, dataTarget, dataToggle} = this.props;
         let height = 38;
         let fontSize = 21;
         let margin = '9px 26px';
@@ -85,20 +76,22 @@ class QbButton extends Component {
             className = className +' ' + name;
         });
         return (
-            <Button onMouseOver={this.mouseOverHandler}
+            <button onMouseOver={this.mouseOverHandler}
                     onMouseOut={this.mouseOutHandler}
                     onMouseDown={this.mouseDownHandler}
                     onMouseUp={this.mouseUpHandler}
-                    onClick={(e)=> clickHandler(e)}
+                    onClick={clickHandler?(e)=> clickHandler(e):()=>{}}
                     className={className}
-                    style={{...privateStyle.frame, ...style, height, fontSize, }}>
+                    style={{...privateStyle.frame, ...style, height, fontSize}}
+                    data-target={dataTarget}
+                    data-toggle={dataToggle}>
                 <div>
                     {this.props.children}
                 </div>
                 <div style={{...privateStyle.content, ...fontStyle, margin}}>
                     {label}
                 </div>
-            </Button>
+            </button>
         );
     }
 }

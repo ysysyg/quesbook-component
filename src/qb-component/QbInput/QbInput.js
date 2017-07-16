@@ -4,15 +4,7 @@
 import React, {Component} from 'react';
 import FormControl from 'react-bootstrap/lib/FormControl';
 
-/*eslint-disable*/
 class QbInput extends Component {
-    static propTypes = {
-        placeHolder: React.PropTypes.string,
-        className: React.PropTypes.string,
-        size: React.PropTypes.string,
-        style: React.PropTypes.object,
-        changeHandler: React.PropTypes.func,
-    };
     render() {
         const {placeHolder, className, size, style, changeHandler} = this.props;
         let height = 38;
@@ -27,10 +19,11 @@ class QbInput extends Component {
                 height = 51;
                 break;
         }
+        let finallClass = className? finallClass = className +' form-control': 'form-control';
         return (
             <div>
-                <FormControl type='text'
-                             className={className}
+                <input type='text'
+                             className={finallClass}
                              placeholder={placeHolder}
                              onChange={(e)=> {
                                  changeHandler.bind(this)(e);

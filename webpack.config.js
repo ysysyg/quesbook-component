@@ -4,9 +4,16 @@
 module.exports = {
     entry: __dirname+'/src/qb-component/index.js',
     output: {
-        path: './dist/js',
+        path: __dirname+'/dist/js',
         filename: 'bundle.js',
         publicPath: '/assets/'
+    },
+    devServer: {
+        contentBase:  __dirname+"/dist",
+        compress: true,
+        port: 9000,
+        hot: true,
+        lazy: true
     },
     module: {
         loaders: [

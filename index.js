@@ -14,6 +14,12 @@ var _QbButton = require('./QbButton');
 
 var _QbButton2 = _interopRequireDefault(_QbButton);
 
+var _QbInput = require('./QbInput');
+
+var _QbModal = require('./QbModal');
+
+require('bootstrap/dist/css/bootstrap.min.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28,19 +34,70 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_Component) {
     _inherits(App, _Component);
 
-    function App() {
+    function App(props) {
         _classCallCheck(this, App);
 
-        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+        _this.state = {
+            show: false
+        };
+        return _this;
     }
 
     _createClass(App, [{
+        key: 'toggleModal',
+        value: function toggleModal() {
+            this.setState({
+                show: !this.state.show
+            });
+            console.log('Tag show is, ', this.state.show);
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
                 'div',
                 null,
-                _react2.default.createElement(_QbButton2.default, null)
+                _react2.default.createElement(_QbButton2.default, { label: 'hello',
+                    size: 'small',
+                    clickHandler: this.toggleModal.bind(this), dataTarget: '#modal', dataToggle: 'modal' }),
+                _react2.default.createElement(_QbInput.QbCheckBox, { label: 'hello', changeHandler: function changeHandler() {
+                        return alert('hi');
+                    } }),
+                _react2.default.createElement(_QbInput.QbRadio, { label: 'hello', changeHandler: function changeHandler() {
+                        return alert('hello');
+                    } }),
+                _react2.default.createElement(_QbInput.QbInput, { size: 'small', changeHandler: function changeHandler(e) {
+                        return alert(e.target.value);
+                    } }),
+                _react2.default.createElement(
+                    _QbModal.QbModal,
+                    { target: 'modal' },
+                    _react2.default.createElement(
+                        _QbModal.QbModalHeader,
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            'header'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _QbModal.QbModalBody,
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            'body'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _QbModal.QbModalFooter,
+                        null,
+                        _react2.default.createElement(_QbButton2.default, { label: 'close', dataTarget: '#modal', dataToggle: 'modal' })
+                    )
+                )
             );
         }
     }]);

@@ -1,6 +1,6 @@
 {
   "name": "quesbook-component",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "",
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -8,14 +8,19 @@
     "babel-eslint": "7.1.1",
     "babel-jest": "17.0.2",
     "babel-loader": "6.2.7",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-app": "^2.0.1",
     "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "style-loader": "^0.18.2",
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
@@ -25,12 +30,14 @@
   "files": [
     "QbButton",
     "QbInput",
+    "QbModal",
     "src",
     "package.json",
     "index.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/webpack-dev-server",
+    "i": "webpack",
     "build": "babel src/qb-component -d ./",
     "dev": "webpack-dev-server --content-base dist/"
   },

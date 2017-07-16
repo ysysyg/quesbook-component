@@ -9,13 +9,14 @@ class QbRadio extends Component {
     render() {
         const {className, value, changeHandler, style, label, name} = this.props;
         return (
-            <Radio type="radio"
-                   value={value}
-                   style={style}
-                   name={name}
-                   onChange={(e)=> changeHandler.bind(this)(e)}>
+            <div>
+                <input type="radio"
+                       value={value}
+                       style={style}
+                       name={name}
+                       onChange={(e)=> changeHandler.bind(this)(e)}/>
                 {label}
-            </Radio>
+            </div>
         );
     }
 }
