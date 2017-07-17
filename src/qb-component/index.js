@@ -25,6 +25,7 @@ class App extends Component {
         return(
             <div>
                 <QbButton label="hello"
+                          className="btn btn-primary"
                           size="small"
                           clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
                 <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>

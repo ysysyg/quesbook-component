@@ -17,5 +17,6 @@ npm-debug.log
 
 .idea
 dist
-QbButton
-QbInput
+/QbButton
+/QbInput
+/Modal
