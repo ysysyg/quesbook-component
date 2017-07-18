@@ -2,7 +2,6 @@
  * Created by az on 2017/7/12.
  */
 import React, {Component} from 'react';
-import FormControl from 'react-bootstrap/lib/FormControl';
 
 class QbInput extends Component {
     render() {

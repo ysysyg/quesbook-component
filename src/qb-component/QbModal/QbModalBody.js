@@ -5,8 +5,9 @@ import React, {Component} from 'react';
 
 export default class QbModalHeader extends Component {
     render() {
+        const {style} = this.props;
         return (
-            <div className="modal-body">
+            <div className="modal-body" style={style}>
                 {this.props.children}
             </div>
         )

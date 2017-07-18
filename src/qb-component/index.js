@@ -8,15 +8,17 @@ import QbHeader from './QbHeader';
 import QbFooter from './QbFooter';
 
 import QbButton from './QbButton';
-import {QbCheckBox, QbRadio, QbInput} from './QbInput';
+import {QbCheckBox, QbRadio, QbInput, QbSwitcher} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
+import {QbDropDown, QbDropDownDivider, QbDropDownItem} from './QbDropDown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            show: false
+            show: false,
+            switchState: true,
         }
     }
     toggleModal () {
@@ -25,33 +27,38 @@ class App extends Component {
         });
         console.log('Tag show is, ', this.state.show);
     }
+    switchHandler() {
+        console.log('Tag click');
+        this.setState((prevState, props) => ({ switchState: !prevState.switchState}));
+    }
     render() {
         return(
             <div>
                 <QbLayout>
-                    this is content
+                    <QbButton label="hello"
+                              className="btn btn-secondary"
+                              size="small"
+                              clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
+                    <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>
+                    <QbRadio label="hello" changeHandler={()=> alert('hello')}/>
+                    <QbInput size="small" changeHandler={(e)=> alert(e.target.value)}/>
+                    <QbModal target="modal" >
+                        <QbModalHeader>
+                            <div>header</div>
+                        </QbModalHeader>
+                        <QbModalBody>
+                            <div>body</div>
+                        </QbModalBody>
+                        <QbModalFooter>
+                            <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
+                        </QbModalFooter>
+                    </QbModal>
+                    <QbDropDown id="B" label="nihao">
+                        <QbDropDownItem label="hello"/>
+                        <QbDropDownDivider/>
+                    </QbDropDown>
+                    <QbSwitcher switchState={this.state.switchState} clickHandler={this.switchHandler.bind(this)}/>
                 </QbLayout>
-                <hr/>
-                <QbHeader></QbHeader>
-                <QbButton label="hello"
-                          className="btn btn-primary"
-                          size="small"
-                          clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
-                <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>
-                <QbRadio label="hello" changeHandler={()=> alert('hello')}/>
-                <QbInput size="small" changeHandler={(e)=> alert(e.target.value)}/>
-                <QbModal target="modal" >
-                    <QbModalHeader>
-                        <div>header</div>
-                    </QbModalHeader>
-                    <QbModalBody>
-                        <div>body</div>
-                    </QbModalBody>
-                    <QbModalFooter>
-                        <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
-                    </QbModalFooter>
-                </QbModal>
-                <QbFooter logo='abc'></QbFooter>
             </div>
         )
     }
