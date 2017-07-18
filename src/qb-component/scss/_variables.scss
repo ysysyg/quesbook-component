@@ -1,0 +1,39 @@
+// Colors
+$white: #fff;
+$black: #000;
+$qbYellow: #faee67;
+$qbLightYellow: #fcf6b3;
+$midNight: #192230;
+$darkSky: #203a62;
+$sky: #5d90e3;
+$clearSky: #b9cff3;
+$borderGray: rgba(25, 34, 48, 0.1);
+
+$mediaPhone: 576px;
+$mediaTablet: 768px;
+$mediaDesktop: 992px;
+
+// $breakpoints: (
+//   'phone': 320px,
+//   'phonemd': 375px,
+//   'phonelg': 425px,
+//   'tablet': 768px,
+//   'desktop': 1024px
+// );
+
+// $im-media-support: true !default;
+
+// @mixin media($conditions...) {
+//   // scss-lint:disable SpaceAroundOperator
+//   @if ($im-media-support and length($conditions) == 0) or
+//       (not $im-media-support and im-intercepts-static-breakpoint($conditions...)) {
+//     @content;
+//   } @else if ($im-media-support and length($conditions) > 0) {
+//     @media #{unquote(parse-expression(nth($conditions, 1)))} {
+//       // Recursive call
+//       @include media(slice($conditions, 2)...) {
+//         @content;
+//       }
+//     }
+//   }
+// }
