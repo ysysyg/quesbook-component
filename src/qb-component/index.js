@@ -3,6 +3,10 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import QbLayout from './QbLayout';
+import QbHeader from './QbHeader';
+import QbFooter from './QbFooter';
+
 import QbButton from './QbButton';
 import {QbCheckBox, QbRadio, QbInput} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
@@ -24,6 +28,11 @@ class App extends Component {
     render() {
         return(
             <div>
+                <QbLayout>
+                    this is content
+                </QbLayout>
+                <hr/>
+                <QbHeader></QbHeader>
                 <QbButton label="hello"
                           className="btn btn-primary"
                           size="small"
@@ -42,6 +51,7 @@ class App extends Component {
                         <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
                     </QbModalFooter>
                 </QbModal>
+                <QbFooter logo='abc'></QbFooter>
             </div>
         )
     }

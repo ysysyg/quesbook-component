@@ -16,7 +16,5 @@ build
 npm-debug.log
 
 .idea
-dist
-/QbButton
-/QbInput
-/Modal
+/dist
+/lib
