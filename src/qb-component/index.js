@@ -48,7 +48,7 @@ class App extends Component {
                         <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
                     </QbModalFooter>
                 </QbModal>
-                <QbDropDown id="B" label="nihao">
+                <QbDropDown id="B" label="nihao" inputType="button" dropdownStyle={{width: 400}} compStyle={{position: 'relative', width: 400}}>
                     <QbDropDownItem label="hello"/>
                     <QbDropDownDivider/>
                 </QbDropDown>
