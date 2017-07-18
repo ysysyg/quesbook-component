@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import QbButton from './QbButton';
 import {QbCheckBox, QbRadio, QbInput} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
+import {QbDropDown, QbDropDownDivider, QbDropDownItem} from './QbDropDown';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
@@ -42,6 +43,10 @@ class App extends Component {
                         <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
                     </QbModalFooter>
                 </QbModal>
+                <QbDropDown id="B" label="nihao">
+                    <QbDropDownItem label="hello"/>
+                    <QbDropDownDivider/>
+                </QbDropDown>
             </div>
         )
     }

@@ -44,7 +44,7 @@ class QbButton extends Component {
         this.addClass('click');
     }
     render() {
-        const {label, size, clickHandler, style, fontStyle, dataTarget, dataToggle} = this.props;
+        const {label, size, clickHandler, style, fontStyle, dataTarget, dataToggle, id} = this.props;
         let height = 38;
         let fontSize = 21;
         let margin = '9px 26px';
@@ -82,9 +82,10 @@ class QbButton extends Component {
                     onMouseUp={this.mouseUpHandler}
                     onClick={clickHandler?(e)=> clickHandler(e):()=>{}}
                     className={className}
+                    id={id?id:null}
                     style={{...privateStyle.frame, ...style, height, fontSize}}
-                    data-target={dataTarget}
-                    data-toggle={dataToggle}>
+                    data-target={dataTarget?dataTarget:''}
+                    data-toggle={dataToggle?dataToggle:''}>
                 <div>
                     {this.props.children}
                 </div>
