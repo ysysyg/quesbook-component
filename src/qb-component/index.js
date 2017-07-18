@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import QbButton from './QbButton';
-import {QbCheckBox, QbRadio, QbInput} from './QbInput';
+import {QbCheckBox, QbRadio, QbInput, QbSwitcher} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
 import {QbDropDown, QbDropDownDivider, QbDropDownItem} from './QbDropDown';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,7 +13,8 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            show: false
+            show: false,
+            switchState: true,
         }
     }
     toggleModal () {
@@ -22,11 +23,15 @@ class App extends Component {
         });
         console.log('Tag show is, ', this.state.show);
     }
+    switchHandler() {
+        console.log('Tag click');
+        this.setState((prevState, props) => ({ switchState: !prevState.switchState}));
+    }
     render() {
         return(
             <div>
                 <QbButton label="hello"
-                          className="btn btn-primary"
+                          className="btn btn-secondary"
                           size="small"
                           clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
                 <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>
@@ -47,6 +52,7 @@ class App extends Component {
                     <QbDropDownItem label="hello"/>
                     <QbDropDownDivider/>
                 </QbDropDown>
+                <QbSwitcher switchState={this.state.switchState} clickHandler={this.switchHandler.bind(this)}/>
             </div>
         )
     }
