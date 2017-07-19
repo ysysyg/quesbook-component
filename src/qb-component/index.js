@@ -11,7 +11,7 @@ import QbButton from './QbButton';
 import {QbCheckBox, QbRadio, QbInput, QbSwitcher} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
 import {QbDropDown, QbDropDownDivider, QbDropDownItem} from './QbDropDown';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './scss/_variables.scss'
 
 class App extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class App extends Component {
             <div>
                 <QbLayout>
                     <QbButton label="hello"
-                              className="btn btn-secondary"
+                              className="btn btn-primary"
                               size="small"
                               clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
                     <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>

@@ -13,6 +13,8 @@ $mediaPhone: 576px;
 $mediaTablet: 768px;
 $mediaDesktop: 992px;
 
+$brand-primary: $darkSky;
+@import "node_modules/bootstrap/scss/bootstrap.scss";
 // $breakpoints: (
 //   'phone': 320px,
 //   'phonemd': 375px,
