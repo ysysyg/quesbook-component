@@ -12,7 +12,7 @@ class QbDropDown extends Component {
                 let btnClass = "btn dropdown-toggle "+ (inputClassName?inputClassName:'btn-secondary');
                 let finalStyle = eval("style.button."+ (size?size:"default"));
                 return (
-                    <div className={compClass} style={compStyle}>
+                    <div className={compClass} style={{height: finalStyle.height, ...compStyle}}>
                         <button type="button"
                                 id={id}
                                 className={btnClass}

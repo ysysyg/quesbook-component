@@ -39,8 +39,8 @@ class App extends Component {
                               className="btn btn-primary"
                               size="small"
                               clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
-                    <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>
-                    <QbRadio label="hello" changeHandler={()=> alert('hello')}/>
+                    <QbCheckBox label="hello" changeHandler={()=> alert('hi')} fontStyle={{fontSize: 16}}/>
+                    <QbRadio label="hello" changeHandler={()=> alert('hello')} fontStyle={{fontSize: 16}}/>
                     <QbInput size="small" changeHandler={(e)=> alert(e.target.value)}/>
                     <QbModal target="modal" >
                         <QbModalHeader>
