@@ -3,6 +3,10 @@
  */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import QbLayout from './QbLayout';
+import QbHeader from './QbHeader';
+import QbFooter from './QbFooter';
+
 import QbButton from './QbButton';
 import {QbCheckBox, QbRadio, QbInput, QbSwitcher} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
@@ -30,29 +34,31 @@ class App extends Component {
     render() {
         return(
             <div>
-                <QbButton label="hello"
-                          className="btn btn-secondary"
-                          size="small"
-                          clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
-                <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>
-                <QbRadio label="hello" changeHandler={()=> alert('hello')}/>
-                <QbInput size="small" changeHandler={(e)=> alert(e.target.value)}/>
-                <QbModal target="modal" >
-                    <QbModalHeader>
-                        <div>header</div>
-                    </QbModalHeader>
-                    <QbModalBody>
-                        <div>body</div>
-                    </QbModalBody>
-                    <QbModalFooter>
-                        <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
-                    </QbModalFooter>
-                </QbModal>
-                <QbDropDown id="B" label="nihao" inputType="button" dropdownStyle={{width: 400}} compStyle={{position: 'relative', width: 400}}>
-                    <QbDropDownItem label="hello"/>
-                    <QbDropDownDivider/>
-                </QbDropDown>
-                <QbSwitcher switchState={this.state.switchState} clickHandler={this.switchHandler.bind(this)}/>
+                <QbLayout>
+                    <QbButton label="hello"
+                              className="btn btn-secondary"
+                              size="small"
+                              clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
+                    <QbCheckBox label="hello" changeHandler={()=> alert('hi')}/>
+                    <QbRadio label="hello" changeHandler={()=> alert('hello')}/>
+                    <QbInput size="small" changeHandler={(e)=> alert(e.target.value)}/>
+                    <QbModal target="modal" >
+                        <QbModalHeader>
+                            <div>header</div>
+                        </QbModalHeader>
+                        <QbModalBody>
+                            <div>body</div>
+                        </QbModalBody>
+                        <QbModalFooter>
+                            <QbButton label="close" dataTarget="#modal" dataToggle='modal'/>
+                        </QbModalFooter>
+                    </QbModal>
+                    <QbDropDown id="B" label="nihao" inputType="button" dropdownStyle={{width: 400}} compStyle={{position: 'relative', width: 400}}>
+                        <QbDropDownItem label="hello"/>
+                        <QbDropDownDivider/>
+                    </QbDropDown>
+                    <QbSwitcher switchState={this.state.switchState} clickHandler={this.switchHandler.bind(this)}/>
+                </QbLayout>
             </div>
         )
     }
