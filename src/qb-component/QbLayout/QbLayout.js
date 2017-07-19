@@ -9,16 +9,13 @@ class QbLayout extends Component {
     }
 
     render() {
-        let logo = this.props.route && this.props.route.logo;
-
         return (
             <div className="layout-ct">
                 <QbHeader></QbHeader>
                 <div className="body-content">
                     {this.props.children}
                 </div>
-
-                <QbFooter logo={logo}></QbFooter>
+                <QbFooter></QbFooter>
             </div>
         );
     }

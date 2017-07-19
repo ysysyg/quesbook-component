@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import './QbFooter.scss';
+import logo from '../assets/image/logo/light-condensed.png';
 
 class QbFooter extends Component {
     render() {
+        // let logo;
         return (
             <footer>
                 <ul>
@@ -19,7 +21,7 @@ class QbFooter extends Component {
                         <a href="mailto:help@quesbook.com?Subject=Help!">Contact us!</a>
                     </li>
                     <li className='logo'>
-                        <img src={this.props.logo} alt=""/>
+                        <img src={logo} alt=""/>
                     </li>
                     <li>
                         <a href="/help">Terms of use</a>

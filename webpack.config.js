@@ -4,9 +4,9 @@
 module.exports = {
     entry: __dirname+'/src/qb-component/index.js',
     output: {
-        path: __dirname+'/dist/js',
+        path: __dirname+'/dist',
         filename: 'bundle.js',
-        publicPath: '/assets/'
+        publicPath: ''
     },
     devServer: {
         contentBase:  __dirname+"/dist",
@@ -19,7 +19,8 @@ module.exports = {
         loaders: [
             {
                 test: /\.(png|jpg|gif)$/,
-                loader: 'url-loader?limit=819200'
+                // loader: 'url-loader?limit=819200'
+                loader: 'file-loader?name=[name].[ext]&outputPath=/assets/image/',
             },
             {
                 test: /\.(js|jsx)$/,
