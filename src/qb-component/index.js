@@ -4,14 +4,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import QbLayout from './QbLayout';
-import QbHeader from './QbHeader';
-import QbFooter from './QbFooter';
 
 import QbButton from './QbButton';
 import {QbCheckBox, QbRadio, QbInput, QbSwitcher} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
 import {QbDropDown, QbDropDownDivider, QbDropDownItem} from './QbDropDown';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {NAV_ITEM_LIST} from './common/const'
 
 class App extends Component {
     constructor(props) {
@@ -34,7 +33,7 @@ class App extends Component {
     render() {
         return(
             <div>
-                <QbLayout>
+                <QbLayout navItemList={NAV_ITEM_LIST}>
                     <QbButton label="hello"
                               className="btn btn-secondary"
                               size="small"
