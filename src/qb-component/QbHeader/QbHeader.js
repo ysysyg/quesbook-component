@@ -65,7 +65,9 @@ class QbHeader extends Component {
                 <li key={index} className={item.isActive
                     ? 'active'
                     : ''}>
-                    <Link to={item.href} onClick={this.onClick_NavLinkItem}>{item.label}</Link>
+                    <Link to={item.href} onClick={this.onClick_NavLinkItem.bind(this)}>
+                        <div style={{color: '#FFFFFF'}}>{item.label}</div>
+                    </Link>
                 </li>
             );
         });
@@ -84,6 +86,8 @@ class QbHeader extends Component {
                     {this.renderLinkItems()}
                 </div>
             );
+        } else {
+            return null;
         }
     }
 
@@ -115,6 +119,8 @@ class QbHeader extends Component {
     renderTargetExam(currentUser) {
         if (currentUser && currentUser.exam_type_names.length > 0) {
             return currentUser.exam_type_names[0];
+        } else {
+            return null;
         }
     }
 
@@ -135,7 +141,7 @@ class QbHeader extends Component {
                         {this.renderSignedLink(currentUser)}
                     </div>
                 </div>
-                <QbSideBar currentUser={currentUser} isShow={this.state.isShowSideBar} onClick_SignOut={this.onClick_SignOut.bind(this)}></QbSideBar>
+                <QbSideBar currentUser={currentUser} isShow={this.state.isShowSideBar} onClick_SignOut={this.onClick_SignOut.bind(this)}/>
             </div>
         );
     }

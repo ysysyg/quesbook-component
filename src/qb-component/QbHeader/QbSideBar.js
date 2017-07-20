@@ -84,7 +84,7 @@ class QbSideBar extends Component {
 
         return (
             <div className="section-ct-navbarside">
-                <div className="col-4 col-md-8 col-lg-12 navbarside-cover" hidden={!this.state.isShow} onClick={this.hideNavSideBar} onMouseOver={this.hideNavSideBar}></div>
+                <div className="col-4 col-md-8 col-lg-12 navbarside-cover" hidden={!this.state.isShow} onClick={this.hideNavSideBar} onMouseOver={this.hideNavSideBar.bind(this)}></div>
                 <div className='no-gutters col-lg-2 navbarside-section' hidden={!this.state.isShow}>
                     <div className="no-gutters col-8 col-md-4 col-lg-2 navbarside-content">
                         {this.renderUserIconSection(currentUser)}

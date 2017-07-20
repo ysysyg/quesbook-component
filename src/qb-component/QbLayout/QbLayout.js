@@ -96,11 +96,11 @@ class QbLayout extends Component {
 
         return (
             <div className="layout-ct">
-                <QbHeader currentUser={currentUser} navItemList={this.state.navItemList} onClick_SignOut={this.onClick_SignOut.bind(this)}></QbHeader>
+                <QbHeader currentUser={currentUser} navItemList={this.state.navItemList} onClick_SignOut={this.onClick_SignOut.bind(this)}/>
                 <div className="body-content">
                     {this.props.children}
                 </div>
-                <QbFooter></QbFooter>
+                <QbFooter/>
             </div>
         );
     }
