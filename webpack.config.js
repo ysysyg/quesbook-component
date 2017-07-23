@@ -2,6 +2,7 @@
  * Created by az on 2017/7/11.
  */
 module.exports = {
+    devtool: 'source-map',
     entry: __dirname+'/src/qb-component/index.js',
     output: {
         path: __dirname+'/dist',
@@ -11,7 +12,7 @@ module.exports = {
     devServer: {
         contentBase:  __dirname+"/dist",
         compress: true,
-        port: 9000,
+        port: 4000,
         hot: true,
         lazy: true
     },

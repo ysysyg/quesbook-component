@@ -4,14 +4,14 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import QbLayout from './QbLayout';
-import QbHeader from './QbHeader';
-import QbFooter from './QbFooter';
 
 import QbButton from './QbButton';
 import {QbCheckBox, QbRadio, QbInput, QbSwitcher} from './QbInput';
 import {QbModalBody, QbModalHeader, QbModalFooter, QbModal} from './QbModal';
 import {QbDropDown, QbDropDownDivider, QbDropDownItem} from './QbDropDown';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {NAV_ITEM_LIST} from './common/const';
+import Routers from './router';
 
 class App extends Component {
     constructor(props) {
@@ -34,8 +34,19 @@ class App extends Component {
     render() {
         return(
             <div>
-                <QbLayout>
-                    <QbButton label="hello"
+                <QbLayout navItemList={NAV_ITEM_LIST}>
+                    <Routers/>
+                </QbLayout>
+            </div>
+        )
+    }
+}
+
+const div = document.getElementById('root');
+ReactDOM.render(<App />, div);
+
+/*
+<QbButton label="hello"
                               className="btn btn-secondary"
                               size="small"
                               clickHandler={this.toggleModal.bind(this)} dataTarget="#modal" dataToggle='modal'/>
@@ -58,11 +69,4 @@ class App extends Component {
                         <QbDropDownDivider/>
                     </QbDropDown>
                     <QbSwitcher switchState={this.state.switchState} clickHandler={this.switchHandler.bind(this)}/>
-                </QbLayout>
-            </div>
-        )
-    }
-}
-
-const div = document.getElementById('root');
-ReactDOM.render(<App />, div);
+*/
